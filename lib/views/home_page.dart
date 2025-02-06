@@ -12,22 +12,33 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    // Carregar os motéis assim que a tela for criada
-    Provider.of<MotelProvider>(context, listen: false).carregarMoteis();
+    // Garante que os motéis sejam carregados quando a tela for criada
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<MotelProvider>(context, listen: false).carregarMoteis();
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<MotelProvider>(context);
-
     return Scaffold(
       appBar: AppBar(title: Text('Motéis Disponíveis')),
-      body: provider.isLoading
-          ? Center(child: CircularProgressIndicator())
-          : ListView.builder(
-        itemCount: provider.moteis.length,
-        itemBuilder: (context, index) {
-          return MotelCard(motel: provider.moteis[index]);
+      body: Consumer<MotelProvider>(
+        builder: (context, provider, child) {
+          if (provider.isLoading) {
+            return Center(child: CircularProgressIndicator());
+          }
+
+          if (provider.moteis.isEmpty) {
+            return Center(child: Text('Nenhum motel encontrado.'));
+          }
+
+          print(provider.moteis.length);
+          return ListView.builder(
+            itemCount: provider.moteis.length,
+            itemBuilder: (context, index) {
+              return MotelCard(motel: provider.moteis[index]);
+            },
+          );
         },
       ),
     );
