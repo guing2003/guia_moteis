@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../models/motel.dart';
 import '../services/motel_services.dart';
+
+
 class MotelProvider extends ChangeNotifier {
   final MotelService _service = MotelService();
   List<Motel> _moteis = [];

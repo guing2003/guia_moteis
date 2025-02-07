@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'views/home_page.dart'; // Verifique se este caminho está correto
+import 'views/home_page.dart';
 import 'core/providers/motel_provider.dart';
 
 void main() {
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Guia de Motéis',
       theme: ThemeData(primarySwatch: Colors.red),
-      home: HomePage(), // HomePage deve ser referenciada corretamente
+      home: HomePage(),
     );
   }
 }
