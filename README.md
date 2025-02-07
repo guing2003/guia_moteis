@@ -3,7 +3,7 @@ Bem-vindo ao Guia de Motéis GO, um aplicativo desenvolvido como parte de um tes
 
 Este aplicativo consome uma API mock para listar motéis, exibindo suas informações e detalhes sobre as suítes disponíveis. Além disso, o projeto inclui testes unitários para garantir a confiabilidade das funcionalidades implementadas.
 
-✨ Funcionalidades
+✨ Funcionalidades         
 ✔️ Exibição da lista de motéis com informações detalhadas    
 ✔️ Exibição das suítes disponíveis para cada motel    
 ✔️ Consumo de API utilizando Flutter + HTTP    
