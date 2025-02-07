@@ -1,4 +1,4 @@
-📱 Guia de Motéis GO
+📱 Guia de Motéis GO         
 Bem-vindo ao Guia de Motéis GO, um aplicativo desenvolvido como parte de um teste técnico para a vaga de Desenvolvedor Mobile (Flutter).
 
 Este aplicativo consome uma API mock para listar motéis, exibindo suas informações e detalhes sobre as suítes disponíveis. Além disso, o projeto inclui testes unitários para garantir a confiabilidade das funcionalidades implementadas.
@@ -10,24 +10,17 @@ Este aplicativo consome uma API mock para listar motéis, exibindo suas informa�
 ✔️ Gerenciamento de estado com Provider     
 ✔️ Implementação de testes unitários para modelos, providers e serviços   
 
-🛠️ Como Executar o Projeto no Android Studio
+🛠️ Como Executar o Projeto no Android Studio     
 
-1️⃣ Pré-requisitos
-
-Antes de rodar o projeto, certifique-se de ter os seguintes itens instalados:
-
-Flutter: Guia de instalação
-
-Dart (já incluso no SDK do Flutter)
-
-Android Studio: Baixar aqui
-
-Plugin do Flutter e Dart no Android Studio
-
-No Android Studio, vá até:
-
-File → Settings → Plugins → Busque por "Flutter" e instale o plugin. O Dart será instalado automaticamente.
-
+1️⃣ Pré-requisitos      
+Antes de rodar o projeto, certifique-se de ter os seguintes itens instalados:          
+Flutter: Guia de instalação         
+Dart (já incluso no SDK do Flutter)           
+Android Studio: Baixar aqui         
+Plugin do Flutter e Dart no Android Studio                    
+No Android Studio, vá até:     
+File → Settings → Plugins → Busque por "Flutter" e instale o plugin. O Dart será instalado automaticamente.      
+ 
 2️⃣ Clone o repositório
 
 Abra o terminal e execute:
