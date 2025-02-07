@@ -5,6 +5,7 @@ Este aplicativo consome uma API mock para listar motéis, exibindo suas informa�
 
 ✨ Funcionalidades
 ✔️ Exibição da lista de motéis com informações detalhadas
+
 ✔️ Exibição das suítes disponíveis para cada motel
 ✔️ Consumo de API utilizando Flutter + HTTP
 ✔️ Gerenciamento de estado com Provider
