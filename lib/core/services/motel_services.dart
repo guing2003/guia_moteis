@@ -5,8 +5,13 @@ import '../models/motel.dart';
 class MotelService {
   final String apiUrl = "https://www.jsonkeeper.com/b/1IXK";
 
+  final http.Client _client;
+
+  // Injetando o Client para testes
+  MotelService({http.Client? client}) : _client = client ?? http.Client();
+
   Future<List<Motel>> fetchMoteis() async {
-    final response = await http.get(Uri.parse(apiUrl));
+    final response = await _client.get(Uri.parse(apiUrl));
     print('Resposta da API: ${response.body}');
 
     if (response.statusCode == 200) {

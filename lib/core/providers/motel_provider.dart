@@ -4,9 +4,14 @@ import '../services/motel_services.dart';
 
 
 class MotelProvider extends ChangeNotifier {
-  final MotelService _service = MotelService();
+  MotelService _service = MotelService();
   List<Motel> _moteis = [];
   bool _isLoading = false;
+
+  //setter para poder injetar o mock nos testes
+  set service(MotelService service) {
+    _service = service;
+  }
 
   List<Motel> get moteis => _moteis;
   bool get isLoading => _isLoading;
@@ -24,5 +29,6 @@ class MotelProvider extends ChangeNotifier {
     _isLoading = false;
     notifyListeners();
   }
+
 }
 
