@@ -33,7 +33,7 @@ class _MotelCardState extends State<MotelCard> {
           ),
         ),
 
-        // Card do Motel
+        //🔹 Card do Motel
         Card(
           margin: EdgeInsets.all(12),
           shape:
@@ -91,13 +91,14 @@ class _MotelCardState extends State<MotelCard> {
                                   ],
                                 ),
                               ),
+                              SizedBox(width: 8),
                               Text(
                                 "Avaliações: ${motel.qtdAvaliacoes}",
                                 style: TextStyle(
                                     fontSize: 12, color: Colors.black),
                               ),
                             ],
-                          ),
+                          )
                         ],
                       ),
                     ),
@@ -108,8 +109,7 @@ class _MotelCardState extends State<MotelCard> {
                       ),
                       onPressed: () {
                         setState(() {
-                          _isFavorite =
-                              !_isFavorite; // Alterna o estado de favorito
+                          _isFavorite = !_isFavorite;
                         });
                       },
                     ),
@@ -232,13 +232,7 @@ class _MotelCardState extends State<MotelCard> {
                     ),
                     SizedBox(width: 8),
                     ElevatedButton.icon(
-                      onPressed: () {
-                        if (motel.suites[_selectedSuiteIndex].qtd > 0) {
-                          // Lógica de reserva aqui
-                        } else {
-                          // Ação para notificar sobre disponibilidade
-                        }
-                      },
+                      onPressed: () {},
                       icon: Icon(Icons.notifications, color: Colors.black),
                       label: Text(
                         motel.suites[_selectedSuiteIndex].qtd > 0
