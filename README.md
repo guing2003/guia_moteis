@@ -94,7 +94,13 @@ Para usar um dispositivo físico, ative o modo desenvolvedor e a depuração USB
 No terminal do Android Studio, rode:              
 `flutter run`                
 Ou, clique no botão Run ▶ no topo do Android Studio.            
-Agora o projeto estará rodando no dispositivo/emulador! 🚀   
+Agora o projeto estará rodando no dispositivo/emulador! 🚀
+
+## 🎥 Demonstração do Aplicativo  
+
+Confira abaixo um vídeo demonstrando o funcionamento do aplicativo em tempo real:  
+
+https://github.com/user-attachments/assets/28534025-6946-4728-8c02-bf7274fa48f0
 
 📩 Contato               
 Caso tenha dúvidas ou sugestões, entre em contato!           
@@ -104,6 +110,5 @@ Caso tenha dúvidas ou sugestões, entre em contato!
 ```         
 🔗 LinkedIn: www.linkedin.com/in/guilherme-delecrode                 
 ```
-
 
 🎯 Desenvolvido por Guilherme Nunes 🚀
