@@ -33,7 +33,7 @@ class _MotelCardState extends State<MotelCard> {
           ),
         ),
 
-        //🔹 Card do Motel
+        //Card do Motel
         Card(
           margin: EdgeInsets.all(12),
           shape:
@@ -44,7 +44,7 @@ class _MotelCardState extends State<MotelCard> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // 🔹 Cabeçalho do motel
+                //Cabeçalho do motel
                 Row(
                   children: [
                     CircleAvatar(
@@ -117,7 +117,7 @@ class _MotelCardState extends State<MotelCard> {
                 ),
                 SizedBox(height: 12),
 
-                // 🔹 Suítes com PageView
+                //Suítes com PageView
                 SizedBox(
                   height: 250,
                   child: PageView.builder(
@@ -158,7 +158,7 @@ class _MotelCardState extends State<MotelCard> {
                   ),
                 ),
 
-                // 🔹 Ícones da categoria
+                //Ícones da categoria
                 if (motel.suites.isNotEmpty) ...[
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
@@ -181,7 +181,7 @@ class _MotelCardState extends State<MotelCard> {
                 ],
                 SizedBox(height: 12),
 
-                // 🔹 Tempo de permanência e preços
+                //Tempo de permanência e preços
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -203,7 +203,7 @@ class _MotelCardState extends State<MotelCard> {
                 ),
                 SizedBox(height: 12),
 
-                // 🔹 Status de disponibilidade
+                //Status de disponibilidade
                 Row(
                   children: [
                     Expanded(
