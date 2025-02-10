@@ -1,57 +1,107 @@
+import 'dart:convert';
+import 'package:mockito/annotations.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:http/http.dart' as http;
 import 'package:guia_moteis/core/models/motel.dart';
-import 'package:guia_moteis/core/providers/motel_provider.dart';
 import 'package:guia_moteis/core/services/motel_services.dart';
 import 'package:mockito/mockito.dart';
+import 'motel_services_test.mocks.dart';
 
-class MockMotelService extends Mock implements MotelService {}
-
+@GenerateMocks([http.Client])
 void main() {
-  late MotelProvider motelProvider;
-  late MockMotelService mockMotelService;
+  late MotelService sut;
+  late MockClient mockClient;
 
   setUp(() {
-    mockMotelService = MockMotelService();
-    motelProvider = MotelProvider();
-    motelProvider.service = mockMotelService;
+    mockClient = MockClient();
+    sut = MotelService(client: mockClient);
   });
 
-  test('Deve carregar os motéis corretamente e atualizar o estado', () async {
-    // Configurando o mock para retornar uma lista de motéis
-    when(mockMotelService.fetchMoteis()).thenAnswer(
-          (_) async => [
-        Motel(
-          fantasia: 'Fantasia',
-          logo: 'logo',
-          bairro: 'bairro',
-          distancia: 1.0,
-          qtdFavoritos: 5,
-          suites: [],
-          media: 4.5,
-          qtdAvaliacoes: 10,
-        ),
-      ],
-    );
+  test('Deve carregar os motéis corretamente quando o client responder status code 200', () async {
+    // Given
+    final jsonString = {
+      "data": {
+        "moteis": [
+          {
+            "fantasia": "Motel Paraíso",
+            "logo": "https://example.com/logo.png",
+            "bairro": "Centro",
+            "distancia": 2.5,
+            "qtdFavoritos": 124,
+            "suites": [
+              {
+                "nome": "Suite Luxo",
+                "preco": 299.99,
+                "qtd": 3,
+                "fotos": [
+                  "https://example.com/suite1_foto1.jpg",
+                  "https://example.com/suite1_foto2.jpg"
+                ],
+                "categoriaItens": [
+                  {
+                    "icone": "https://example.com/icons/wi-fi.png"
+                  },
+                  {
+                    "icone": "https://example.com/icons/ar-condicionado.png"
+                  }
+                ],
+                "periodos": [
+                  {
+                    "tempoFormatado": "2 horas",
+                    "valorTotal": 199.99
+                  },
+                  {
+                    "tempoFormatado": "4 horas",
+                    "valorTotal": 349.99
+                  }
+                ]
+              },
+              {
+                "nome": "Suite Executiva",
+                "preco": 159.99,
+                "qtd": 5,
+                "fotos": [
+                  "https://example.com/suite2_foto1.jpg",
+                  "https://example.com/suite2_foto2.jpg"
+                ],
+                "categoriaItens": [
+                  {
+                    "icone": "https://example.com/icons/wi-fi.png"
+                  },
+                  {
+                    "icone": "https://example.com/icons/tv.png"
+                  }
+                ],
+                "periodos": [
+                  {
+                    "tempoFormatado": "1 hora",
+                    "valorTotal": 99.99
+                  },
+                  {
+                    "tempoFormatado": "3 horas",
+                    "valorTotal": 269.99
+                  }
+                ]
+              }
+            ],
+            "media": 4.5,
+            "qtdAvaliacoes": 68
+          }
+        ]
+      }
+    };
 
-    // Chama o método que carrega os motéis
-    await motelProvider.carregarMoteis();
+    final response = utf8.encode(json.encode(jsonString));
+    when(mockClient.get(Uri.parse("https://www.jsonkeeper.com/b/1IXK")))
+        .thenAnswer((_) async => http.Response.bytes(response, 200));
 
-    // Verificando se o estado foi atualizado corretamente
-    expect(motelProvider.moteis.isNotEmpty, true);
-    expect(motelProvider.isLoading, false);
-  });
+    // When
+    final result = await sut.fetchMoteis();
 
-  test('Deve lidar com erro ao carregar os motéis', () async {
-    // Simulando um erro na requisição
-    when(mockMotelService.fetchMoteis()).thenThrow(Exception('Erro ao carregar'));
-
-    // Chama o método que carrega os motéis
-    try {
-      await motelProvider.carregarMoteis();
-    } catch (e) {
-      // Verifica se o estado de loading foi desligado mesmo após erro
-      expect(motelProvider.isLoading, false);
-      expect(motelProvider.moteis.isEmpty, true);
-    }
+    // Then
+    final firstMotel = result[0];
+    expect(result, isA<List<Motel>>());
+    expect(result.length, 1);
+    expect(firstMotel.suites.length, 2);
   });
 }
