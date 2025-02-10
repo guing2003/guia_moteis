@@ -44,7 +44,10 @@ Isso irá rodar todos os testes e exibir os resultados no terminal.
 🔹 Testes implementados             
 Teste de Modelos: Verifica se os modelos Motel e Suite são criados corretamente a partir do JSON             
 Teste de Providers: Testa se o MotelProvider carrega os motéis corretamente e trata erros              
-Teste de Serviços: Simula requisições à API utilizando mockito para validar a integração do serviço              
+Teste de Serviços: Simula requisições à API utilizando mockito para validar a integração do serviço     
+
+![image](https://github.com/user-attachments/assets/99920fcf-9c01-4475-9ed2-6752966d00c2)
+
  ```
 📌 Tecnologias Utilizadas             
 Flutter                        
@@ -101,4 +104,6 @@ Caso tenha dúvidas ou sugestões, entre em contato!
 ```         
 🔗 LinkedIn: www.linkedin.com/in/guilherme-delecrode                 
 ```
+
+
 🎯 Desenvolvido por Guilherme Nunes 🚀
