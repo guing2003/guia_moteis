@@ -36,7 +36,8 @@ class _MotelCardState extends State<MotelCard> {
         // Card do Motel
         Card(
           margin: EdgeInsets.all(12),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           color: Colors.white,
           child: Padding(
             padding: EdgeInsets.all(12),
@@ -62,31 +63,38 @@ class _MotelCardState extends State<MotelCard> {
                           ),
                           Text(
                             motel.bairro,
-                            style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+                            style: TextStyle(
+                                fontSize: 14, color: Colors.grey[600]),
                           ),
                           Row(
                             children: [
                               Container(
-                                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 8, vertical: 4),
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(8),
-                                  border: Border.all(color: Colors.amber, width: 1.5),
+                                  border: Border.all(
+                                      color: Colors.amber, width: 1.5),
                                 ),
                                 child: Row(
                                   children: [
-                                    Icon(Icons.star, color: Colors.amber, size: 18),
+                                    Icon(Icons.star,
+                                        color: Colors.amber, size: 18),
                                     SizedBox(width: 4),
                                     Text(
                                       motel.media.toStringAsFixed(1),
-                                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold),
                                     ),
                                   ],
                                 ),
                               ),
                               Text(
                                 "Avaliações: ${motel.qtdAvaliacoes}",
-                                style: TextStyle(fontSize: 12, color: Colors.black),
+                                style: TextStyle(
+                                    fontSize: 12, color: Colors.black),
                               ),
                             ],
                           ),
@@ -100,7 +108,8 @@ class _MotelCardState extends State<MotelCard> {
                       ),
                       onPressed: () {
                         setState(() {
-                          _isFavorite = !_isFavorite; // Alterna o estado de favorito
+                          _isFavorite =
+                              !_isFavorite; // Alterna o estado de favorito
                         });
                       },
                     ),
@@ -154,8 +163,7 @@ class _MotelCardState extends State<MotelCard> {
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      children: motel.suites[_selectedSuiteIndex]
-                          .itensCategoria
+                      children: motel.suites[_selectedSuiteIndex].categoriaItens
                           .where((item) => item.iconeUrl.isNotEmpty)
                           .map((item) {
                         return Padding(
@@ -179,13 +187,13 @@ class _MotelCardState extends State<MotelCard> {
                   children: [
                     Text(
                       "Tempo de permanência",
-                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 4),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: motel.suites[_selectedSuiteIndex]
-                          .periodos
+                      children: motel.suites[_selectedSuiteIndex].periodos
                           .map((periodo) {
                         return _buildTimeOption(
                             periodo.tempoFormatado, periodo.valorTotal);
@@ -244,7 +252,6 @@ class _MotelCardState extends State<MotelCard> {
                     ),
                   ],
                 ),
-
               ],
             ),
           ),

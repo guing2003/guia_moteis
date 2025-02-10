@@ -13,7 +13,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<MotelProvider>(context, listen: false).carregarMoteis();
+      Provider.of<MotelProvider>(context, listen: false).loadMotel();
     });
   }
 

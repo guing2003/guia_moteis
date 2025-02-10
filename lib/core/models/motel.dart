@@ -39,7 +39,7 @@ class Suite {
   final double preco;
   final int qtd;
   final List<String> fotos;
-  final List<ItensCategoria> itensCategoria;
+  final List<ItensCategoria> categoriaItens;
   final List<Periodo> periodos;
 
   Suite({
@@ -47,7 +47,7 @@ class Suite {
     required this.preco,
     required this.qtd,
     required this.fotos,
-    required this.itensCategoria,
+    required this.categoriaItens,
     required this.periodos,
   });
 
@@ -57,7 +57,7 @@ class Suite {
       preco: (json['preco'] is num) ? (json['preco'] as num).toDouble() : 0.0,
       qtd: json['qtd'] is int ? json['qtd'] : 0,
       fotos: (json['fotos'] as List?)?.map((f) => f.toString()).toList() ?? [],
-      itensCategoria: (json['categoriaItens'] as List?)?.map((item) => ItensCategoria.fromJson(item)).toList() ?? [],
+      categoriaItens: (json['categoriaItens'] as List?)?.map((item) => ItensCategoria.fromJson(item)).toList() ?? [],
       periodos: (json['periodos'] as List?)?.map((item) => Periodo.fromJson(item)).toList() ?? [],
     );
   }

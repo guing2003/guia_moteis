@@ -8,7 +8,7 @@ class MotelProvider extends ChangeNotifier {
   List<Motel> _moteis = [];
   bool _isLoading = false;
 
-  //setter para poder injetar o mock nos testes
+
   set service(MotelService service) {
     _service = service;
   }
@@ -16,19 +16,20 @@ class MotelProvider extends ChangeNotifier {
   List<Motel> get moteis => _moteis;
   bool get isLoading => _isLoading;
 
-  Future<void> carregarMoteis() async {
+  Future<void> loadMotel() async {
     _isLoading = true;
     notifyListeners();
 
     try {
       _moteis = await _service.fetchMoteis();
+      print('Motéis carregados: ${_moteis.length}');
     } catch (e) {
+      print('Erro ao carregar motéis: $e');
       _moteis = [];
     }
 
     _isLoading = false;
     notifyListeners();
   }
-
 }
 

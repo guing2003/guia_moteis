@@ -25,8 +25,8 @@ void main() {
       expect(suite.preco, 150.0);
       expect(suite.qtd, 2);
       expect(suite.fotos, ['foto1.jpg', 'foto2.jpg']);
-      expect(suite.itensCategoria.length, 2);
-      expect(suite.itensCategoria[0].iconeUrl, 'icone1.png');
+      expect(suite.categoriaItens.length, 2);
+      expect(suite.categoriaItens[0].iconeUrl, 'icone1.png');
       expect(suite.periodos.length, 2);
       expect(suite.periodos[0].tempoFormatado, '1 hora');
       expect(suite.periodos[0].valorTotal, 100.0);
@@ -44,7 +44,7 @@ void main() {
       expect(suite.preco, 100.0);
       expect(suite.qtd, 0);
       expect(suite.fotos.isEmpty, true);
-      expect(suite.itensCategoria.isEmpty, true);
+      expect(suite.categoriaItens.isEmpty, true);
       expect(suite.periodos.isEmpty, true);
     });
   });

@@ -7,7 +7,6 @@ class MotelService {
 
   final http.Client _client;
 
-  // Injetando o Client para testes
   MotelService({http.Client? client}) : _client = client ?? http.Client();
 
   Future<List<Motel>> fetchMoteis() async {
@@ -17,6 +16,9 @@ class MotelService {
     if (response.statusCode == 200) {
       var utf8Response = utf8.decode(response.bodyBytes);
       final data = json.decode(utf8Response);
+
+      print('Dados decodificados: $data');  // Verifique os dados decodificados
+
       final moteisData = data['data']['moteis'] as List;
 
       return moteisData.map((json) => Motel.fromJson(json)).toList();
