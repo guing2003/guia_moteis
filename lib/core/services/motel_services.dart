@@ -14,7 +14,7 @@ class MotelService {
     print('Resposta da API: ${response.body}');
 
     if (response.statusCode == 200) {
-      var utf8Response = utf8.decode(response.bodyBytes);
+      var utf8Response = utf8.decode(response.bodyBytes, allowMalformed: true);
       final data = json.decode(utf8Response);
 
       print('Dados decodificados: $data');  // Verifique os dados decodificados
